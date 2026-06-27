@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Realistic SVG Bulb</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    background-color:LightSkyBlue;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    text-align:center;
+    background-color:White;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0px 0px 15px Gray;
+}
+
+h1{
+    color:Navy;
+}
+
+svg{
+    width:250px;
+    height:350px;
+}
+
+button{
+    padding:12px 25px;
+    margin:10px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+#on{
+    background-color:Green;
+    color:White;
+}
+
+#off{
+    background-color:Red;
+    color:White;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Bulb ON / OFF</h1>
+
+<svg viewBox="0 0 220 320">
+
+<defs>
+
+<radialGradient id="glass">
+<stop offset="0%" stop-color="White"/>
+<stop offset="100%" stop-color="LightGray"/>
+</radialGradient>
+
+<filter id="glow">
+<feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+<feMerge>
+<feMergeNode in="coloredBlur"/>
+<feMergeNode in="SourceGraphic"/>
+</feMerge>
+</filter>
+
+</defs>
+
+<circle
+id="light"
+cx="110"
+cy="100"
+r="70"
+fill="White"
+stroke="Gray"
+stroke-width="4"/>
+
+<path
+d="M70 150
+Q110 190
+150 150
+L150 180
+L70 180 Z"
+fill="Silver"/>
+
+<rect
+x="85"
+y="180"
+width="50"
+height="60"
+fill="Gray"
+rx="8"/>
+
+<line x1="85" y1="195" x2="135" y2="195"
+stroke="Black"/>
+
+<line x1="85" y1="208" x2="135" y2="208"
+stroke="Black"/>
+
+<line x1="85" y1="221" x2="135" y2="221"
+stroke="Black"/>
+
+</svg>
+
+<br>
+
+<button id="on" onclick="turnOn()">Turn ON</button>
+
+<button id="off" onclick="turnOff()">Turn OFF</button>
+
+<script>
+    let bulb = document.getElementById("light");
+
+function turnOn(){
+
+    bulb.setAttribute("fill","Yellow");
+    bulb.setAttribute("filter","url(#glow)");
+
+}
+
+function turnOff(){
+
+    bulb.setAttribute("fill","White");
+    bulb.removeAttribute("filter");
+
+}
+</script>
+
+</div>
+
+</body>
+</html>
