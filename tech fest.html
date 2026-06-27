@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TECH FEST 2026</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    line-height:1.6;
+}
+
+/* Navigation */
+nav{
+    background:#0d1b2a;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav ul li a:hover{
+    color:yellow;
+}
+
+/* Sections */
+section{
+    padding:80px 40px;
+}
+
+/* Hero */
+.hero{
+    background:linear-gradient(to right,#1d3557,#457b9d);
+    color:white;
+    text-align:center;
+    padding-top:150px;
+    padding-bottom:120px;
+}
+
+.hero h1{
+    font-size:50px;
+}
+
+.hero p{
+    font-size:22px;
+    margin:10px 0;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:orange;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#ff6600;
+}
+
+/* About */
+.about{
+    background:#f4f4f4;
+}
+
+/* Event Cards */
+.events-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    border:1px solid #ccc;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    text-align:center;
+    background:white;
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.card h3{
+    margin:10px 0;
+}
+
+.card button{
+    margin:15px;
+    padding:10px 20px;
+    border:none;
+    background:#0077b6;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.card button:hover{
+    background:#023e8a;
+}
+
+/* Gallery */
+.gallery-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.gallery-container img{
+    width:100%;
+    height:200px;
+    border-radius:10px;
+    object-fit:cover;
+}
+
+/* Organizers */
+.organizers{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    text-align:center;
+}
+
+.organizer-card img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+}
+
+/* Testimonials */
+.testimonial{
+    background:#f4f4f4;
+    padding:20px;
+    margin:15px 0;
+    border-left:5px solid orange;
+}
+
+/* Statistics */
+.stats{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    text-align:center;
+    background:#1d3557;
+    color:white;
+}
+
+.stat-box{
+    margin:20px;
+}
+
+/* Table */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table, th, td{
+    border:1px solid #333;
+}
+
+th, td{
+    padding:15px;
+    text-align:center;
+}
+
+/* Form */
+form{
+    background:#f4f4f4;
+    padding:20px;
+    border-radius:10px;
+}
+
+form input,
+form textarea,
+form select{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+form button{
+    background:#28a745;
+    color:white;
+    padding:12px 20px;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+form button:hover{
+    background:#218838;
+}
+
+/* Sponsors */
+.sponsors{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    text-align:center;
+}
+
+.sponsor{
+    padding:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* FAQ */
+.faq{
+    margin:20px 0;
+}
+
+/* Footer */
+footer{
+    background:#0d1b2a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <h2>ABC College</h2>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <h1>TECH FEST 2026</h1>
+    <p>Innovation • Coding • Creativity</p>
+    <p>20 June 2026</p>
+    <p>College Auditorium</p>
+    <a href="#register" class="btn">Register Now</a>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+    <h2>About Event</h2>
+    <br>
+    <p>
+        TechFest is a technical festival organized to encourage innovation,
+        technical skills and teamwork among students.
+    </p>
+
+    <br>
+
+    <h3>Objectives</h3>
+    <ul>
+        <li>Improve technical knowledge</li>
+        <li>Encourage innovation</li>
+        <li>Build teamwork skills</li>
+    </ul>
+
+    <br>
+
+    <h3>What is TechFest?</h3>
+    <p>
+        TechFest is a platform where students showcase technical talents
+        through competitions and workshops.
+    </p>
+
+    <br>
+
+    <h3>Why is it organized?</h3>
+    <p>
+        It is organized to motivate students towards creativity,
+        technology and practical learning.
+    </p>
+
+    <br>
+
+    <h3>Who can participate?</h3>
+    <p>All college students can participate.</p>
+</section>
+
+<!-- Events -->
+<section id="events">
+    <h2>Featured Events</h2>
+    <br>
+
+    <div class="events-container">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4" alt="">
+            <h3>Coding Contest</h3>
+            <p>Duration: 2 Hours</p>
+            <button>Register</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="">
+            <h3>Web Design Competition</h3>
+            <p>Duration: 3 Hours</p>
+            <button>Register</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="">
+            <h3>Quiz Competition</h3>
+            <p>Duration: 1 Hour</p>
+            <button>Register</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="">
+            <h3>Paper Presentation</h3>
+            <p>Duration: 10 Minutes</p>
+            <button>Register</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery">
+    <h2>Gallery</h2>
+    <br>
+
+    <div class="gallery-container">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+        <img src="https://images.unsplash.com/photo-1515169067868-5387ec356754">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+    </div>
+</section>
+
+<!-- Organizers -->
+<section>
+    <h2>Organizers</h2>
+    <br>
+
+    <div class="organizers">
+
+        <div class="organizer-card">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg">
+            <h3>Faculty Coordinator</h3>
+            <p>Dr. Rajesh Kumar</p>
+            <p>Professor - CSE</p>
+        </div>
+
+        <div class="organizer-card">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg">
+            <h3>Student Coordinator</h3>
+            <p>Anjali Sharma</p>
+            <p>CSE Department</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section>
+    <h2>Testimonials</h2>
+
+    <div class="testimonial">
+        ★★★★★ <br>
+        Amazing event and great learning experience.
+    </div>
+
+    <div class="testimonial">
+        ★★★★★ <br>
+        Best technical event in our college.
+    </div>
+
+    <div class="testimonial">
+        ★★★★★ <br>
+        Improved my coding skills significantly.
+    </div>
+</section>
+
+<!-- Statistics -->
+<section class="stats">
+    <div class="stat-box">
+        <h2>500+</h2>
+        <p>Participants</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>20+</h2>
+        <p>Events</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>15+</h2>
+        <p>Organizers</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>10+</h2>
+        <p>Sponsors</p>
+    </div>
+</section>
+
+<!-- Schedule -->
+<section>
+    <h2>Event Schedule</h2>
+
+    <table>
+        <tr>
+            <th>Time</th>
+            <th>Event</th>
+        </tr>
+
+        <tr>
+            <td>09:00 AM</td>
+            <td>Inauguration</td>
+        </tr>
+
+        <tr>
+            <td>10:00 AM</td>
+            <td>Coding Contest</td>
+        </tr>
+
+        <tr>
+            <td>12:00 PM</td>
+            <td>Web Design</td>
+        </tr>
+
+        <tr>
+            <td>02:00 PM</td>
+            <td>Quiz Competition</td>
+        </tr>
+
+        <tr>
+            <td>04:00 PM</td>
+            <td>Prize Distribution</td>
+        </tr>
+    </table>
+</section>
+
+<!-- Registration Form -->
+<section id="register">
+    <h2>Registration Form</h2>
+    <br>
+
+    <form>
+
+        <h3>Personal Information</h3>
+
+        <input type="text" placeholder="Full Name" required>
+
+        <input type="text" placeholder="Roll Number" required>
+
+        <input type="email" placeholder="Email" required>
+
+        <input type="tel" placeholder="Phone Number" required>
+
+        <h3>Department</h3>
+
+        <select>
+            <option>CSE</option>
+            <option>ECE</option>
+            <option>EEE</option>
+            <option>IT</option>
+            <option>MECH</option>
+        </select>
+
+        <h3>Gender</h3>
+
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> Other
+
+        <br><br>
+
+        <h3>Event Selection</h3>
+
+        <input type="checkbox"> Coding Contest <br>
+        <input type="checkbox"> Web Design <br>
+        <input type="checkbox"> Quiz Competition <br>
+        <input type="checkbox"> Paper Presentation <br><br>
+
+        <textarea rows="5" placeholder="Comments"></textarea>
+
+        <button type="submit">Submit Registration</button>
+
+    </form>
+</section>
+
+<!-- Sponsors -->
+<section>
+    <h2>Sponsors</h2>
+
+    <div class="sponsors">
+        <div class="sponsor">Google</div>
+        <div class="sponsor">Microsoft</div>
+        <div class="sponsor">Infosys</div>
+        <div class="sponsor">TCS</div>
+        <div class="sponsor">Wipro</div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section>
+    <h2>FAQ</h2>
+
+    <div class="faq">
+        <h3>Who can participate?</h3>
+        <p>All college students can participate.</p>
+    </div>
+
+    <div class="faq">
+        <h3>Is there any registration fee?</h3>
+        <p>No, participation is free.</p>
+    </div>
+
+    <div class="faq">
+        <h3>Will certificates be provided?</h3>
+        <p>Yes, certificates will be provided.</p>
+    </div>
+
+    <div class="faq">
+        <h3>How can I contact organizers?</h3>
+        <p>You can contact through email or phone.</p>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <br>
+
+    <p><strong>ABC College</strong></p>
+    <p>Hyderabad</p>
+    <p>Email: abc@gmail.com</p>
+    <p>Phone: 9876543210</p>
+
+    <br>
+
+    <h3>Social Media</h3>
+
+    <p>Instagram</p>
+    <p>LinkedIn</p>
+    <p>YouTube</p>
+    <p>Facebook</p>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 TechFest | All Rights Reserved</p>
+    <p>Designed By: y.srujana</p>
+</footer>
+
+</body>
+</html>

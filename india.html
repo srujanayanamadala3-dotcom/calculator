@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore India Tourism Portal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+nav{
+    background:#000;
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+}
+
+.hero{
+    background:lightblue;
+    text-align:center;
+    padding:70px 20px;
+}
+
+.hero button{
+    padding:10px 20px;
+    margin-top:15px;
+}
+
+section{
+    padding:30px;
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+}
+
+.card{
+    background:white;
+    border:1px solid #ccc;
+    padding:15px;
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+table,th,td{
+    border:1px solid #999;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+form{
+    background:white;
+    padding:20px;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:8px;
+    margin:8px 0;
+}
+
+button{
+    padding:10px 15px;
+    cursor:pointer;
+}
+
+.news{
+    background:white;
+    height:250px;
+    overflow:auto;
+    padding:20px;
+}
+
+footer{
+    background:black;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:30px;
+}
+
+.review{
+    background:white;
+    border:1px solid #ccc;
+    padding:20px;
+    text-align:center;
+}
+
+iframe{
+    width:100%;
+    height:220px;
+}
+
+.contact{
+    background:white;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Destinations</a>
+<a href="#">Packages</a>
+<a href="#">Gallery</a>
+<a href="#">Booking</a>
+<a href="#">Contact</a>
+</nav>
+
+<div class="hero">
+<h1>Explore India</h1>
+<p>Discover Amazing Destinations</p>
+<button>Book Now</button>
+</div>
+
+<section>
+<h2>Popular Destinations</h2>
+
+<div class="grid">
+<div class="card"><img src="https://picsum.photos/200/120?1"><h3>Goa</h3></div>
+<div class="card"><img src="https://picsum.photos/200/120?2"><h3>Kashmir</h3></div>
+<div class="card"><img src="https://picsum.photos/200/120?3"><h3>Kerala</h3></div>
+<div class="card"><img src="https://picsum.photos/200/120?4"><h3>Manali</h3></div>
+<div class="card"><img src="https://picsum.photos/200/120?5"><h3>Ooty</h3></div>
+<div class="card"><img src="https://picsum.photos/200/120?6"><h3>Jaipur</h3></div>
+<div class="card"><img src="https://picsum.photos/200/120?7"><h3>Delhi</h3></div>
+<div class="card"><img src="https://picsum.photos/200/120?8"><h3>Mumbai</h3></div>
+</div>
+</section>
+
+<section>
+<h2>Popular Foods</h2>
+
+<div class="grid">
+<div class="card"><h3>Hyderabad</h3><p>Biryani</p></div>
+<div class="card"><h3>Delhi</h3><p>Chole Bhature</p></div>
+<div class="card"><h3>Punjab</h3><p>Butter Chicken</p></div>
+<div class="card"><h3>Rajasthan</h3><p>Dal Baati</p></div>
+<div class="card"><h3>Gujarat</h3><p>Dhokla</p></div>
+<div class="card"><h3>Goa</h3><p>Fish Curry</p></div>
+</div>
+</section>
+
+<section>
+<h2>Transportation</h2>
+
+<div class="grid">
+<div class="card">Flight</div>
+<div class="card">Train</div>
+<div class="card">Bus</div>
+<div class="card">Cab</div>
+<div class="card">Cruise</div>
+<div class="card">Bike Rental</div>
+</div>
+</section>
+
+<section>
+<h2>Tour Packages</h2>
+
+<table>
+<tr>
+<th>Package</th>
+<th>Days</th>
+<th>Price</th>
+</tr>
+
+<tr><td>Package 1</td><td>3 Days</td><td>₹2500</td></tr>
+<tr><td>Package 2</td><td>5 Days</td><td>₹5000</td></tr>
+<tr><td>Package 3</td><td>7 Days</td><td>₹10000</td></tr>
+<tr><td>Package 4</td><td>10 Days</td><td>₹15000</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Travel Statistics</h2>
+
+<table>
+<tr>
+<th>Year</th>
+<th>Tourists</th>
+</tr>
+
+<tr><td>2020</td><td>10000</td></tr>
+<tr><td>2021</td><td>15000</td></tr>
+<tr><td>2022</td><td>22000</td></tr>
+<tr><td>2023</td><td>30000</td></tr>
+<tr><td>2024</td><td>40000</td></tr>
+<tr><td>2025</td><td>50000</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Adventure Activities</h2>
+<ul>
+<li>Trekking</li>
+<li>Camping</li>
+<li>River Rafting</li>
+<li>Scuba Diving</li>
+<li>Paragliding</li>
+<li>Rock Climbing</li>
+</ul>
+</section>
+
+<section>
+<h2>Packing Checklist</h2>
+<label><input type="checkbox"> Travel Bag</label><br>
+<label><input type="checkbox"> Clothes</label><br>
+<label><input type="checkbox"> Camera</label><br>
+<label><input type="checkbox"> Medicines</label>
+</section>
+
+<section>
+<h2>Travel Documents Checklist</h2>
+<label><input type="checkbox"> Passport</label><br>
+<label><input type="checkbox"> Visa</label><br>
+<label><input type="checkbox"> Aadhaar Card</label><br>
+<label><input type="checkbox"> PAN Card</label>
+</section>
+
+<section>
+<h2>Travel Survey</h2>
+
+<form>
+<p>Favorite Destination Type</p>
+<input type="radio" name="type"> Beach
+<input type="radio" name="type"> Mountains
+<input type="radio" name="type"> Historical
+
+<br><br>
+
+<p>Preferred Season</p>
+<input type="radio" name="season"> Summer
+<input type="radio" name="season"> Winter
+<input type="radio" name="season"> Monsoon
+</form>
+</section>
+
+<section>
+<h2>Budget Planner</h2>
+
+Destination:
+<select>
+<option>Goa</option>
+<option>Kerala</option>
+<option>Kashmir</option>
+</select>
+
+Budget:
+<input type="range" min="1000" max="50000">
+</section>
+
+<section>
+<h2>Gallery</h2>
+
+<div class="grid">
+<img src="https://picsum.photos/200?11">
+<img src="https://picsum.photos/200?12">
+<img src="https://picsum.photos/200?13">
+<img src="https://picsum.photos/200?14">
+<img src="https://picsum.photos/200?15">
+<img src="https://picsum.photos/200?16">
+</div>
+</section>
+
+<section>
+<h2>Booking Form</h2>
+
+<form>
+<input type="text" placeholder="Name">
+<input type="email" placeholder="Email">
+<input type="tel" placeholder="Phone">
+
+<select>
+<option>Goa</option>
+<option>Kerala</option>
+<option>Kashmir</option>
+</select>
+
+<input type="date">
+
+<textarea placeholder="Special Requests"></textarea>
+
+<button type="submit">Submit</button>
+</form>
+</section>
+
+<section>
+<h2>Hotel Booking</h2>
+
+<form>
+<input type="text" placeholder="Hotel Name">
+<input type="date">
+<input type="date">
+<input type="number" placeholder="Adults">
+<input type="number" placeholder="Children">
+
+<select>
+<option>Standard</option>
+<option>Deluxe</option>
+<option>Suite</option>
+</select>
+</form>
+</section>
+
+<section>
+<h2>Customer Reviews</h2>
+
+<div class="grid">
+<div class="review">⭐⭐⭐⭐⭐<br>Ravi</div>
+<div class="review">⭐⭐⭐⭐⭐<br>Priya</div>
+<div class="review">⭐⭐⭐⭐⭐<br>Rahul</div>
+</div>
+</section>
+
+<section>
+<h2>Latest Travel News</h2>
+
+<div class="news">
+<p>1. New Travel Update Released</p>
+<p>2. Tourism Growth Increased</p>
+<p>3. New Tourist Attractions Opened</p>
+<p>4. Travel Safety Guidelines Updated</p>
+</div>
+</section>
+
+<section>
+<h2>Emergency Contacts</h2>
+
+<table>
+<tr>
+<th>Service</th>
+<th>Number</th>
+</tr>
+
+<tr><td>Police</td><td>100</td></tr>
+<tr><td>Ambulance</td><td>108</td></tr>
+<tr><td>Fire</td><td>101</td></tr>
+<tr><td>Tourism Helpline</td><td>1363</td></tr>
+</table>
+</section>
+
+<section>
+<h2>FAQs</h2>
+
+<details>
+<summary>How can I book a trip?</summary>
+<p>Use the booking form above.</p>
+</details>
+
+<details>
+<summary>Do you offer hotel booking?</summary>
+<p>Yes, hotel booking is available.</p>
+</details>
+</section>
+
+<section>
+<h2>Travel Videos</h2>
+
+<div class="grid">
+<iframe src="https://www.youtube.com/embed/Scxs7L0vhZ4"></iframe>
+<iframe src="https://www.youtube.com/embed/35npVaFGHMY"></iframe>
+</div>
+</section>
+
+<section class="contact">
+<h2>Contact Us</h2>
+<p>Email: exploreindia@gmail.com</p>
+<p>Phone: 9876543210</p>
+<p>Address: Hyderabad, India</p>
+</section>
+
+<footer>
+<h2>Explore India Tourism Portal</h2>
+<p>© 2026 All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

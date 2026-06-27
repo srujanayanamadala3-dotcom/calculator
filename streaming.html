@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Movie Streaming Website</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#0b0b0b;
+    color:white;
+}
+
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 7%;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#ff2c2c;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#ff2c2c;
+}
+
+.icons i{
+    margin-left:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.icons i:hover{
+    color:#ff2c2c;
+}
+
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.3)),
+    url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop') center/cover;
+    
+    display:flex;
+    align-items:center;
+    padding:0 7%;
+}
+
+.hero-content{
+    max-width:600px;
+}
+
+.hero h1{
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    line-height:1.8;
+    margin-bottom:25px;
+    color:#ddd;
+}
+
+.hero-buttons button{
+    padding:14px 30px;
+    border:none;
+    margin-right:15px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.watch-btn{
+    background:#ff2c2c;
+    color:white;
+}
+
+.trailer-btn{
+    background:transparent;
+    border:2px solid white !important;
+    color:white;
+}
+
+.hero-buttons button:hover{
+    transform:scale(1.08);
+}
+
+
+section{
+    padding:90px 7%;
+}
+
+.section-title{
+    font-size:32px;
+    margin-bottom:30px;
+    color:#ff2c2c;
+}
+
+
+.movie-row{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+}
+
+.movie-card{
+    min-width:220px;
+    background:#151515;
+    border-radius:15px;
+    overflow:hidden;
+    position:relative;
+    transition:0.4s;
+}
+
+.movie-card:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px rgba(255,44,44,0.5);
+}
+
+.movie-card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.movie-info{
+    padding:15px;
+}
+
+.rating{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#ff2c2c;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+
+.movie-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.grid-card{
+    background:#151515;
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.grid-card:hover{
+    transform:translateY(-10px);
+}
+
+.grid-card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.grid-content{
+    padding:15px;
+}
+
+
+.new-badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:gold;
+    color:black;
+    padding:5px 10px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+
+.categories{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.category{
+    padding:18px 35px;
+    background:linear-gradient(45deg,#ff2c2c,#ff6b6b);
+    border-radius:30px;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.category:hover{
+    transform:scale(1.08);
+}
+
+
+.continue-card{
+    background:#151515;
+    border-radius:15px;
+    overflow:hidden;
+    margin-bottom:20px;
+}
+
+.continue-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.progress{
+    background:#333;
+    height:8px;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.progress-bar{
+    width:70%;
+    height:100%;
+    background:#ff2c2c;
+}
+
+
+.recommend-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.recommend-card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.overlay{
+    position:absolute;
+    bottom:-100%;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    transition:0.4s;
+}
+
+.recommend-card:hover .overlay{
+    bottom:0;
+}
+
+
+.tv-info{
+    padding:15px;
+}
+
+.tv-info p{
+    margin-top:8px;
+    color:#ccc;
+}
+
+
+.upcoming{
+    background:linear-gradient(45deg,#111,#1d1d1d);
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.upcoming h2{
+    color:#ff2c2c;
+    margin-bottom:15px;
+}
+
+.upcoming button{
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff2c2c;
+    color:white;
+    cursor:pointer;
+}
+
+
+.cast-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:25px;
+}
+
+.cast-card{
+    text-align:center;
+    background:#151515;
+    padding:20px;
+    border-radius:15px;
+}
+
+.cast-card img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+}
+
+
+.plans{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.plan-card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+    padding:40px;
+    text-align:center;
+    transition:0.4s;
+}
+
+.plan-card:hover{
+    transform:translateY(-10px);
+}
+
+.price{
+    font-size:45px;
+    color:#ff2c2c;
+    margin:20px 0;
+}
+
+.plan-card button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff2c2c;
+    color:white;
+    cursor:pointer;
+}
+
+
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.testimonial{
+    background:#151515;
+    padding:25px;
+    border-radius:15px;
+}
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.user img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+}
+
+.stars{
+    color:gold;
+    margin-top:10px;
+}
+
+
+
+footer{
+    background:#050505;
+    padding:50px 7%;
+    text-align:center;
+}
+
+.footer-links{
+    margin:20px 0;
+}
+
+.footer-links a{
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+}
+
+.socials i{
+    margin:0 10px;
+    font-size:22px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.socials i:hover{
+    color:#ff2c2c;
+}
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+}
+
+@media(max-width:480px){
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .hero-buttons button{
+        margin-bottom:10px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+
+<nav>
+    <div class="logo">STREAMIX</div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">TV Shows</a></li>
+        <li><a href="#">My List</a></li>
+    </ul>
+
+    <div class="icons">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-user-circle"></i>
+    </div>
+</nav>
+
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>THE DARK LEGEND</h1>
+
+        <p>
+            Experience the ultimate movie streaming platform with
+            unlimited entertainment, trending movies, TV shows,
+            and premium originals.
+        </p>
+
+        <div class="hero-buttons">
+            <button class="watch-btn">Watch Now</button>
+            <button class="trailer-btn">Trailer</button>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <h2 class="section-title">Trending Movies</h2>
+
+    <div class="movie-row">
+
+        <div class="movie-card">
+            <span class="rating">8.9</span>
+            <img src="https://picsum.photos/300/400?1">
+            <div class="movie-info">
+                <h3>Avengers</h3>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <span class="rating">9.1</span>
+            <img src="https://picsum.photos/300/400?2">
+            <div class="movie-info">
+                <h3>Joker</h3>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <span class="rating">8.7</span>
+            <img src="https://picsum.photos/300/400?3">
+            <div class="movie-info">
+                <h3>Batman</h3>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <h2 class="section-title">Popular Movies</h2>
+
+    <div class="movie-grid">
+
+        <div class="grid-card">
+            <img src="https://picsum.photos/300/400?4">
+            <div class="grid-content">
+                <h3>Interstellar</h3>
+                <p>2024</p>
+            </div>
+        </div>
+
+        <div class="grid-card">
+            <img src="https://picsum.photos/300/400?5">
+            <div class="grid-content">
+                <h3>Inception</h3>
+                <p>2023</p>
+            </div>
+        </div>
+
+        <div class="grid-card">
+            <img src="https://picsum.photos/300/400?6">
+            <div class="grid-content">
+                <h3>Matrix</h3>
+                <p>2025</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Top Rated Movies</h2>
+
+    <div class="movie-grid">
+
+        <div class="grid-card">
+            <img src="https://picsum.photos/300/400?7">
+            <div class="grid-content">
+                <h3>Gladiator</h3>
+                <p>IMDb: 9.3</p>
+            </div>
+        </div>
+
+        <div class="grid-card">
+            <img src="https://picsum.photos/300/400?8">
+            <div class="grid-content">
+                <h3>Avatar</h3>
+                <p>IMDb: 9.1</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <h2 class="section-title">Latest Releases</h2>
+
+    <div class="movie-grid">
+
+        <div class="movie-card">
+            <span class="new-badge">NEW</span>
+            <img src="https://picsum.photos/300/400?9">
+            <div class="movie-info">
+                <h3>Extraction 3</h3>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <span class="new-badge">NEW</span>
+            <img src="https://picsum.photos/300/400?10">
+            <div class="movie-info">
+                <h3>Dune</h3>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <h2 class="section-title">Movie Categories</h2>
+
+    <div class="categories">
+        <div class="category">Action</div>
+        <div class="category">Comedy</div>
+        <div class="category">Horror</div>
+        <div class="category">Sci-Fi</div>
+        <div class="category">Thriller</div>
+        <div class="category">Drama</div>
+    </div>
+</section>
+
+
+<section>
+    <h2 class="section-title">Continue Watching</h2>
+
+    <div class="continue-card">
+        <img src="https://picsum.photos/1200/400?11">
+
+        <div class="movie-info">
+            <h3>Money Heist</h3>
+            <p>Remaining Time: 35 mins</p>
+
+            <div class="progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <h2 class="section-title">Recommended For You</h2>
+
+    <div class="movie-grid">
+
+        <div class="recommend-card">
+            <img src="https://picsum.photos/300/400?12">
+
+            <div class="overlay">
+                Amazing sci-fi adventure movie.
+            </div>
+        </div>
+
+        <div class="recommend-card">
+            <img src="https://picsum.photos/300/400?13">
+
+            <div class="overlay">
+                Thriller with unexpected twists.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <h2 class="section-title">TV Shows</h2>
+
+    <div class="movie-grid">
+
+        <div class="grid-card">
+            <img src="https://picsum.photos/300/400?14">
+
+            <div class="tv-info">
+                <h3>Stranger Things</h3>
+                <p>4 Seasons • 36 Episodes</p>
+            </div>
+        </div>
+
+        <div class="grid-card">
+            <img src="https://picsum.photos/300/400?15">
+
+            <div class="tv-info">
+                <h3>Wednesday</h3>
+                <p>2 Seasons • 18 Episodes</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <h2 class="section-title">Upcoming Movies</h2>
+
+    <div class="upcoming">
+        <h2>Spider Verse 3</h2>
+        <p>Releasing on December 25, 2026</p>
+        <button>Watch Trailer</button>
+    </div>
+</section>
+
+
+<section>
+    <h2 class="section-title">Cast & Crew</h2>
+
+    <div class="cast-grid">
+
+        <div class="cast-card">
+            <img src="https://randomuser.me/api/portraits/men/1.jpg">
+            <h3>Robert</h3>
+            <p>Lead Actor</p>
+        </div>
+
+        <div class="cast-card">
+            <img src="https://randomuser.me/api/portraits/women/2.jpg">
+            <h3>Emma</h3>
+            <p>Director</p>
+        </div>
+
+        <div class="cast-card">
+            <img src="https://randomuser.me/api/portraits/men/3.jpg">
+            <h3>Chris</h3>
+            <p>Producer</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+    <h2 class="section-title">Subscription Plans</h2>
+
+    <div class="plans">
+
+        <div class="plan-card">
+            <h2>Basic</h2>
+            <div class="price">$5</div>
+            <p>720p Streaming</p>
+            <br>
+            <button>Choose Plan</button>
+        </div>
+
+        <div class="plan-card">
+            <h2>Standard</h2>
+            <div class="price">$10</div>
+            <p>1080p Streaming</p>
+            <br>
+            <button>Choose Plan</button>
+        </div>
+
+        <div class="plan-card">
+            <h2>Premium</h2>
+            <div class="price">$20</div>
+            <p>4K Ultra HD</p>
+            <br>
+            <button>Choose Plan</button>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Testimonials</h2>
+
+    <div class="testimonials">
+
+        <div class="testimonial">
+            <div class="user">
+                <img src="https://randomuser.me/api/portraits/women/5.jpg">
+                <div>
+                    <h3>Sophia</h3>
+                </div>
+            </div>
+
+            <p>
+                Best streaming platform with amazing UI and movie collection.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <div class="user">
+                <img src="https://randomuser.me/api/portraits/men/6.jpg">
+                <div>
+                    <h3>David</h3>
+                </div>
+            </div>
+
+            <p>
+                Smooth experience and responsive design on every device.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+
+    <h2>STREAMIX</h2>
+
+    <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="socials">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-youtube"></i>
+    </div>
+
+    <br>
+
+    <p>© 2026 STREAMIX. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>

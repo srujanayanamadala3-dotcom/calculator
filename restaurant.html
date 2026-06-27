@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Taste Restaurant</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#111;
+color:white;
+}
+
+nav{
+position:sticky;
+top:0;
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(10px);
+display:flex;
+justify-content:space-between;
+padding:15px 50px;
+z-index:1000;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:20px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+}
+
+.hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4') center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero-content{
+background:rgba(0,0,0,0.5);
+padding:30px;
+border-radius:20px;
+}
+
+.btn{
+padding:12px 25px;
+background:linear-gradient(45deg,#ff9800,#ff5722);
+border:none;
+border-radius:30px;
+color:white;
+cursor:pointer;
+margin-top:10px;
+}
+
+section{
+padding:60px 10%;
+}
+
+h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:15px;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.menu-category{
+margin-bottom:30px;
+}
+
+input,textarea,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+}
+
+form{
+max-width:600px;
+margin:auto;
+}
+
+.gallery img{
+height:220px;
+transition:0.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+footer{
+background:#000;
+padding:30px;
+text-align:center;
+}
+
+.layout{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+
+.table-box{
+background:#444;
+padding:25px;
+text-align:center;
+border-radius:10px;
+}
+
+.vip{
+background:gold;
+color:black;
+}
+
+.family{
+background:green;
+}
+
+.outdoor{
+background:skyblue;
+color:black;
+}
+
+.party{
+background:crimson;
+}
+
+.review{
+border-left:5px solid orange;
+}
+
+@media(max-width:768px){
+nav{
+flex-direction:column;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>🍽 Royal Taste</h2>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#reservation">Reserve</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HOME -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h1>Welcome to Royal Taste Restaurant</h1>
+<p>Experience Luxury Dining Like Never Before</p>
+<button class="btn">Book a Table</button>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Us</h2>
+<p>
+Royal Taste started in 2010 with a mission to provide world-class dining experiences.
+Our vision is to serve quality food with unforgettable hospitality.
+</p>
+</section>
+
+<!-- FEATURED DISHES -->
+<section>
+<h2>Featured Dishes</h2>
+
+<div class="grid">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38">
+<h3>Pizza</h3>
+<p>₹299</p>
+<p>⭐⭐⭐⭐⭐</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<h3>Burger</h3>
+<p>₹199</p>
+<p>⭐⭐⭐⭐</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+<h3>Steak</h3>
+<p>₹599</p>
+<p>⭐⭐⭐⭐⭐</p>
+</div>
+</div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+<h2>Complete Menu</h2>
+
+<div class="menu-category">
+<h3>Starters</h3>
+<p>Soup, Spring Rolls, Garlic Bread</p>
+</div>
+
+<div class="menu-category">
+<h3>Main Course</h3>
+<p>Biryani, Pizza, Pasta, Burger</p>
+</div>
+
+<div class="menu-category">
+<h3>Desserts</h3>
+<p>Ice Cream, Brownie, Cake</p>
+</div>
+
+<div class="menu-category">
+<h3>Beverages</h3>
+<p>Coffee, Tea, Mocktails</p>
+</div>
+
+<div class="menu-category">
+<h3>Vegetarian</h3>
+<p>Paneer Butter Masala, Veg Biryani</p>
+</div>
+
+<div class="menu-category">
+<h3>Non-Vegetarian</h3>
+<p>Chicken Biryani, Fish Curry</p>
+</div>
+
+</section>
+
+<!-- RESERVATION -->
+<section id="reservation">
+<h2>Table Reservation</h2>
+
+<form>
+<input type="text" placeholder="Name">
+<input type="email" placeholder="Email">
+<input type="tel" placeholder="Phone">
+<input type="date">
+<input type="time">
+<input type="number" placeholder="Guests">
+<button class="btn">Reserve Now</button>
+</form>
+</section>
+
+<!-- RESTAURANT LAYOUT -->
+<section>
+<h2>Restaurant Layout</h2>
+
+<div class="layout">
+<div class="table-box vip">VIP Table</div>
+<div class="table-box family">Family Table</div>
+<div class="table-box outdoor">Outdoor</div>
+<div class="table-box party">Party Hall</div>
+</div>
+
+</section>
+
+<!-- TABLE CATEGORIES -->
+<section>
+<h2>Table Categories</h2>
+
+<div class="grid">
+<div class="card">VIP Lounge</div>
+<div class="card">Couple Table</div>
+<div class="card">Family Table</div>
+<div class="card">Business Meeting</div>
+<div class="card">Party Hall</div>
+</div>
+
+</section>
+
+<!-- CHEF -->
+<section>
+<h2>Our Chefs</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Chef John</h3>
+<p>15 Years Experience</p>
+</div>
+
+<div class="card">
+<h3>Chef Emma</h3>
+<p>10 Years Experience</p>
+</div>
+
+<div class="card">
+<h3>Chef David</h3>
+<p>12 Years Experience</p>
+</div>
+</div>
+
+</section>
+
+<!-- GALLERY -->
+<section>
+<h2>Gallery</h2>
+
+<div class="grid gallery">
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4">
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+<img src="https://images.unsplash.com/photo-1559339352-11d035aa65de">
+</div>
+
+</section>
+
+<!-- OFFERS -->
+<section>
+<h2>Special Offers</h2>
+
+<div class="grid">
+<div class="card">Weekend Discount - 20%</div>
+<div class="card">Festival Offer - Buy 1 Get 1</div>
+<div class="card">Family Combo - ₹999</div>
+</div>
+
+</section>
+
+<!-- REVIEWS -->
+<section>
+<h2>Customer Reviews</h2>
+
+<div class="grid">
+<div class="card review">
+⭐⭐⭐⭐⭐<br>
+Amazing food and service.
+</div>
+
+<div class="card review">
+⭐⭐⭐⭐<br>
+Loved the ambiance.
+</div>
+
+<div class="card review">
+⭐⭐⭐⭐⭐<br>
+Best restaurant in town.
+</div>
+</div>
+
+</section>
+
+<!-- EVENTS -->
+<section>
+<h2>Events & Celebrations</h2>
+<p>Birthday Parties | Anniversary Events | Corporate Meetings</p>
+</section>
+
+<!-- TODAY SPECIAL -->
+<section>
+<h2>Today's Specials</h2>
+<div class="grid">
+<div class="card">Chef Special Pasta</div>
+<div class="card">Royal Chicken Biryani</div>
+<div class="card">Chocolate Lava Cake</div>
+</div>
+</section>
+
+<!-- BRANCHES -->
+<section>
+<h2>Our Branches</h2>
+
+<div class="grid">
+<div class="card">Hyderabad Branch</div>
+<div class="card">Vijayawada Branch</div>
+<div class="card">Visakhapatnam Branch</div>
+</div>
+
+</section>
+
+<!-- MEMBERSHIP -->
+<section>
+<h2>Membership Program</h2>
+
+<div class="grid">
+<div class="card">Silver - 5% Discount</div>
+<div class="card">Gold - 10% Discount</div>
+<div class="card">Platinum - 20% Discount</div>
+</div>
+
+</section>
+
+<!-- FAQ -->
+<section>
+<h2>FAQs</h2>
+<p><b>Can I cancel reservation?</b><br>Yes, 24 hours before booking.</p>
+<br>
+<p><b>Payment Methods?</b><br>UPI, Cards, Cash.</p>
+</section>
+
+<!-- BLOG -->
+<section>
+<h2>Food Blog</h2>
+
+<div class="grid">
+<div class="card">Top 10 Italian Dishes</div>
+<div class="card">Cooking Tips from Our Chef</div>
+<div class="card">Restaurant Updates</div>
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Us</h2>
+
+<form>
+<input type="text" placeholder="Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button class="btn">Send Message</button>
+</form>
+
+<p style="text-align:center;margin-top:20px;">
+📧 info@royaltaste.com<br>
+📞 +91 9876543210<br>
+📍 Hyderabad, India
+</p>
+
+</section>
+
+<!-- CONFIRMATION -->
+<section>
+<h2>Reservation Confirmation</h2>
+<div class="card">
+<h3>Booking Successful ✅</h3>
+<p>Name: John Doe</p>
+<p>Date: 20/06/2026</p>
+<p>Time: 7:00 PM</p>
+<p>Guests: 4</p>
+
+<div style="width:150px;height:150px;background:white;margin:auto;margin-top:20px;">
+QR Code
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 Royal Taste Restaurant</p>
+<p>Facebook | Instagram | Twitter</p>
+
+<input type="email" placeholder="Subscribe Newsletter">
+<button class="btn">Subscribe</button>
+</footer>
+
+</body>
+</html>
